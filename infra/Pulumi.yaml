@@ -1,0 +1,11 @@
+name: car-branding
+runtime: nodejs
+description: An app to add and view car brand logos
+template:
+  config:
+    azure:environment:
+      description: The Azure environment to use (`public`, `usgovernment`, `german`, `china`)
+      default: public
+    location:
+      description: The Azure region location
+      default: westeurope
