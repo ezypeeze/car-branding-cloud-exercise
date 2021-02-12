@@ -15,9 +15,13 @@ export default function BrandForm({ disabled, onSubmit }: BrandFormProps) {
 
     const form = event.currentTarget
     const isValid = form.checkValidity()
+    if (!isValid) {
+      return setValidated(true);
+    }
 
-    setValidated(true);
-    isValid && onSubmit && onSubmit(new FormData(form))
+    onSubmit && onSubmit(new FormData(form))
+    form.reset()
+    setValidated(false);
   }
 
   return (

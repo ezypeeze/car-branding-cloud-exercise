@@ -79,16 +79,6 @@ const basicLinuxServicePlan = new azure.appservice.Plan('basic-linux', {
         tier: 'Basic',
     },
 })
-const basicWindowsServicePlan = new azure.appservice.Plan('basic-windows', {
-    tags: defaultTags,
-    name: pulumi.interpolate`${stack}-basic-windows-asp`,
-    resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
-    sku: {
-        size: 'B1',
-        tier: 'Basic',
-    },
-})
 
 // Common Application Insights
 const appInsights = new azure.appinsights.Insights(`ai`, {
@@ -106,7 +96,7 @@ const functionsApp = new azure.appservice.ArchiveFunctionApp('functions-app', {
     location: resourceGroup.location,
     account: storageAccount,
     container: codeContainer,
-    plan: basicWindowsServicePlan,
+    // plan: basicWindowsServicePlan,
     enabled: true,
     httpsOnly: true,
     appSettings: {
@@ -129,7 +119,9 @@ const apiGatewayService = new azure.apimanagement.Service('apim', {
     tags: defaultTags,
     resourceGroupName: resourceGroup.name,
     name: pulumi.interpolate`${stack}-${uniqueGloballyPrefix}-apim`,
-    skuName: 'Developer_1',
+    skuName: 'Developer_1', 
+    // NOT SUPPORTED ATM: https://github.com/terraform-providers/terraform-provider-azurerm/issues/6256
+    // skuName: 'Consumption', 
     publisherName: 'Pedro Pereira',
     publisherEmail: 'pedromdspereira.93@gmail.com',
 })

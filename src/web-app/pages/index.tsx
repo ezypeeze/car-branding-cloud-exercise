@@ -47,6 +47,7 @@ export default function Home() {
 
   const create = async (formData: FormData) => {
     try {
+      setLoading(true)
       await createBrand(formData)
       fetch()
     } catch (err) {
@@ -69,7 +70,7 @@ export default function Home() {
 
       <h3 className="mt-3">Brand List</h3>
       <hr />
-      {loading ? <Loading />: <BrandList items={brands} />}
+      {loading ? <Loading /> : <BrandList items={brands} />}
       {listError && (
         <div className="text-center">{listError}</div>
       )}
