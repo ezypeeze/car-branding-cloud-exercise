@@ -1,7 +1,7 @@
 # Car Branding Cloud Exercise #
 
 * Using Azure Cloud (Functions, APIM, Storage & WebApp service)
-* Pulumi as IaaC (uses terraform internally)
+* Pulumi as IaC (uses terraform internally)
 * WebApp based on Next.ts (node.js server framework for React)
 * Functions are typescript
 * APIM is proxy-like (takes care of function api keys)
@@ -29,7 +29,7 @@ make up-dev
 ```
 ---
 
-**NOTE:** creating APIM resource takes up to 40m-60m alone. This is not `IaaC` bug but how azure takes to make this resource active.
+**NOTE:** creating APIM resource takes up to 40m-60m alone. This is not `IaC` bug but how azure takes to make this resource active.
 
 ---
 
@@ -46,8 +46,8 @@ Just go to `src/web-app`:
 
 
 ### Notes
-* No CI/CD (this however is extremely easy with `IaaC`)
+* No CI/CD (this however is extremely easy with `IaC`)
 * No authentication/authorization (could have use ADD/Okta/Auth0 and then add policies to APIM easily)
 * No tests (since not asked and time was short)
-* Code is kinda Quick & Dirty, just focused more on `IaaC` itself (since product spec was so easy I assumed that)
+* Code is kinda Quick & Dirty, just focused more on `IaC` itself (since product spec was so easy I assumed that)
 * Was fun to try `pulumi` - was on my todo list! :)
